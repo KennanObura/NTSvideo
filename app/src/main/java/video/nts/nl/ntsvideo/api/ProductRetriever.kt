@@ -1,8 +1,10 @@
 package video.nts.nl.ntsvideo.api
 
+import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.security.auth.callback.Callback
+import video.nts.nl.ntsvideo.models.ProductList
+
 
 class ProductRetriever {
 
@@ -10,7 +12,7 @@ class ProductRetriever {
 
     init {
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://127.0.0.1:3333/api/v2/suppliers")
+            .baseUrl("http://127.0.0.1:3333/api/v2/suppliers/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

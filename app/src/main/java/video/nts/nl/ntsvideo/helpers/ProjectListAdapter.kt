@@ -1,5 +1,8 @@
 package video.nts.nl.ntsvideo.helpers
 
+import android.annotation.TargetApi
+import android.os.Build
+import android.support.annotation.RequiresApi
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -21,12 +24,18 @@ class ProjectListAdapter(private val products: List<Product>) : RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: ProjectListAdapter.ViewHolder, position: Int) {
-        val product = products[position]
+        holder.product = products[position]
+        holder.p_date.text  = products[position].p_timestamp.toString()
+        holder.p_name.text  = products[position].p_name.toString()
+
+
     }
 
-    class ViewHolder(itemView: View) {
-        var name : TextView = itemView.findViewById(R.id.idProject_name_text)
-        var date : TextView = itemView.findViewById(R.id.idContents_text)
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+//        var p_id : TextView
+        var p_name : TextView = itemView.findViewById(R.id.idProject_name_text)
+        var p_date : TextView = itemView.findViewById(R.id.idContents_text)
+        var product : Product? = null
 
 
 
